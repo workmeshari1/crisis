@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
@@ -8,6 +9,13 @@ import os
 import json
 
 app = FastAPI(title="Crisis API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # ✅ السماح بالوصول من أي مصدر
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 

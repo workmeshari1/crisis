@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+gspread
+pandas
+sentence-transformers
+torch
+google-auth

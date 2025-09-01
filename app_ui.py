@@ -41,7 +41,7 @@ if st.button("بحث"):
     else:
         try:
             # رابط الـ API المحلي
-            api_url = f"http://127.0.0.1:8000/search?query={query}"
+            api_url = f"https://crisis-pypw.onrender.com/search?query={query}"
             response = requests.get(api_url)
             data = response.json()
 

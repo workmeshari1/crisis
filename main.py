@@ -9,9 +9,15 @@ import os
 import json
 
 app = FastAPI(title="Crisis API")
+# ✅ تحديد المصادر المسموح لها بالاتصال
+origins = [
+    "https://crisis-ui.onrender.com",
+    "http://localhost:3000"  # ✅ هذا هو الرابط الجديد الذي يسمح بالاتصال من جهازك
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ✅ السماح بالوصول من أي مصدر
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -19,7 +25,7 @@ app.add_middleware(
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
-# تحميل الموديل مرة وحدة
+# تحميل الموديل مرة واحدة
 model = SentenceTransformer("Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka")
 
 def load_data():

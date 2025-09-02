@@ -9,10 +9,9 @@ import os
 import json
 
 app = FastAPI(title="Crisis API")
-# ✅ تحديد المصادر المسموح لها بالاتصال
+# ✅ السماح بالوصول من أي مصدر (للتأكد)
 origins = [
-    "https://crisis-ui.onrender.com",
-    "http://localhost:3000"  # ✅ هذا هو الرابط الجديد الذي يسمح بالاتصال من جهازك
+    "*"
 ]
 
 app.add_middleware(
